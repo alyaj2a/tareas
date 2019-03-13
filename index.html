@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="taskApp" class="col-sm-offset-2 col-sm-8 ">
+
+            <h1 class="my-4">{{ nameApp }}</h1>        
+            <form v-on:submit="agregarTarea" class="my-4">
+                <input type="text" v-model="tareas.titulo" class="form-control my-4">
+                <input type="submit" value="Agregar tarea" class="btn btn-block btn-success mb-4">
+            </form>
+            <table class="table"  >
+                <thead>
+                    <tr>
+                        <th>Hecho!</th>
+                        <th>Tarea</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="tarea in tareas" >
+                        <td>
+                            <input type="checkbox" v-model="tarea.hecho">
+                        </td>
+                        <td>
+                            {{tarea.titulo}}
+                        </td>
+                        <td>
+                            <input type="button" value="Eliminar" class="btn btn-danger" v-on:click="eliminarTarea">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
